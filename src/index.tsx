@@ -19,7 +19,7 @@ const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}></Provider>
+      <Provider store={store}>
         <QueryClientProvider client={queryClient}>
             <NavbarNavigatio />
             <App />

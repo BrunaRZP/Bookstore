@@ -1,5 +1,5 @@
 import ProductList from "../Products/ProductList";
-import SignUpBar from "../Bars/SignUpBar/SignUpBar";
+// import SignUpBar from "../Bars/SignUpBar/SignUpBar";
 // import Logo from "";
 import { Footer1, Nav, H1, P, Ul, LiDiv, Li, FooterLink } from "./styles";
 
@@ -14,7 +14,7 @@ function Footer() {
                 <div>
                     <H1>Sign up for out newsletter</H1>
                     <P>Be the first to know about our special offers, new product launches, and events!</P>
-                    <SignUpBar onSearch={ProductList} />
+                    {/* <SignUpBar onSearch={ProductList} /> */}
                 </div>
                 
                 <div>

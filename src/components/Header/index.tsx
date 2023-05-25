@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RootState } from '../store';
-import SearchBar from '../Bars/SearchBar/SearchBar';
+// import SearchBar from '../Bars/SearchBar/SearchBar';
 import Carrinho from '../Cart'
-import CartIcon from "../../assets/images/carrinho.png";
+// import CartIcon from "../../assets/images/carrinho.png";
 import { Header1, Nav, HeaderLink, SearchBarDiv, StyledIconWrapper, Img, CartItemCount } from './styles';
 
 // contador do carrinho
@@ -21,14 +21,14 @@ const Header: React.FC = () => {
           <HeaderLink texto="Stories" redirect="/produtos" />
           <HeaderLink texto="About" redirect="/about" />
 
-          <SearchBarDiv>
+          {/* <SearchBarDiv>
             <SearchBar onSearch={Carrinho} />
-          </SearchBarDiv>
+          </SearchBarDiv> */}
 
           {/* imagem e contador (mudar) */}
           <StyledIconWrapper>
             <Link to="/cart">
-              <Img src={CartIcon}></Img>
+              {/* <Img src={CartIcon}></Img> */}
               {itemCount > 0 && <CartItemCount itemCount={itemCount}>{itemCount}</CartItemCount>}
             </Link>
           </StyledIconWrapper>

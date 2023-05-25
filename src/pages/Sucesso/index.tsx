@@ -6,7 +6,7 @@ import { RootState } from '../../components/store';
 import Product from '../../types/product';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { Back } from './styles';
+import { DivSucesso, Back, Ul } from './styles';
 
 const Sucess: React.FC = () => {
   const products = useSelector((state: RootState) => state.cart.products);
@@ -30,29 +30,30 @@ const Sucess: React.FC = () => {
       <Header />
 
       <div>
-        <div>
+        <DivSucesso>
           <h1>Compra realizada com sucesso!</h1>
           <p>Obrigado por fazer sua compra.</p>
           <p>Seu pedido foi processado e em breve será enviado.</p>
 
           <Back as={Link} to="/produtos">Continuar comprando</Back>
-        </div>
+        </DivSucesso>
 
-      <ul>
-        {productList.map((product: Product) => (
-          <li key={product.id}>
-            <div>
-              <h1>{product.name}</h1>
-              <p>Quantidade: <b>({product.quantity})</b></p>
-              <p>Subtotal: <b>$ {product.quantity * product.price}</b></p>
-              <p>{product.description}</p>
-              <p>{product.category}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+        <Ul>
+          {productList.map((product: Product) => (
+            <li key={product.id}>
+              <div>
+                <h1>{product.name}</h1>
+                <p>Quantidade: <b>({product.quantity})</b></p>
+                <p>Subtotal: <b>$ {product.quantity * product.price}</b></p>
+                <p>{product.description}</p>
+                <p>{product.category}</p>
+              </div>
+            </li>
+          ))}
+          <b>Total: $ {calculateTotal()}</b>
+        </Ul>
 
-      <b>Total: $ {calculateTotal()}</b>
+        
       </div>
 
       <Footer />

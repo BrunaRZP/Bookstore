@@ -2,17 +2,23 @@ import styled from "styled-components";
 import Link from '../../components/Link';
 import { colors } from "../../styles/themes";
 
-export const Teste = styled.div`
-display: flex;
-justify-content: space-evenly;
-`;
-
 export const DivSucesso = styled.div`
-h1, p {
-    margin: 5%;
-}
+text-align: center;
 `;
 
 export const Back = styled.a`
+color: red;
+`;
+
+export const Ul = styled.ul`
+width: 25%;
 margin: 5%;
+background-color: ${colors.another};
+li {
+    div {
+            h1 {
+                list-style: none;
+            }
+    }
+}
 `;
