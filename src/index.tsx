@@ -8,7 +8,6 @@ import './index.css';
 import App from './App';
 import NavbarNavigatio from './Navbar/NavbarNavigatio';
 import Footer from './Footer/Footer';
-import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,16 +17,14 @@ const queryClient = new QueryClient();
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-            <NavbarNavigatio />
-            <App />
-            <Routes />
-            <Footer />
-          </QueryClientProvider>
-       </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+          <NavbarNavigatio />
+          <App />
+          <Routes />
+          <Footer />
+        </QueryClientProvider>
+    </Provider>
   </React.StrictMode>
 );
 

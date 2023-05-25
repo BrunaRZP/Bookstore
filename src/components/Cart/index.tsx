@@ -91,62 +91,62 @@ const Cart: React.FC = () => {
       <Header />
 
       <Main>
-      {productList.length === 0 ? (
-        <EmptyCart>
-          <DivEmpty>
-            <h3>Carrinho Vazio</h3>
-          </DivEmpty>
-          <Shopping as={Link} to="/produtos"><ButtonEmpty>Ir às compras agora</ButtonEmpty></Shopping>
-        </EmptyCart>
-      ) : (
-        <Carrinho>
-          <h3>Produtos no Carrinho</h3>
-          <NoReady as={Link} to="/produtos">Não está pronto para finalizar a compra? Continue comprando</NoReady>
+        {productList.length === 0 ? (
+          <EmptyCart>
+            <DivEmpty>
+              <h3>Carrinho Vazio</h3>
+            </DivEmpty>
+            <Shopping as={Link} to="/produtos"><ButtonEmpty>Ir às compras agora</ButtonEmpty></Shopping>
+          </EmptyCart>
+        ) : (
+          <Carrinho>
+            <h3>Produtos no Carrinho</h3>
+            <NoReady as={Link} to="/produtos">Não está pronto para finalizar a compra? Continue comprando</NoReady>
 
-          <DivFlex>
-            <DivUl>
-              {productList.map((product: Product) => (
-                <LiUnit key={product.id}>
-                  <div>
-                    <h1>{product.name}</h1>
-                    <p><strong>$ {product.price} </strong> cada</p>
-                    <p>Subtotal: <b>$ {product.quantity * product.price}</b></p>
-                  </div>
+            <DivFlex>
+              <DivUl>
+                {productList.map((product: Product) => (
+                  <LiUnit key={product.id}>
+                    <div>
+                      <h1>{product.name}</h1>
+                      <p><strong>$ {product.price} </strong> cada</p>
+                      <p>Subtotal: <b>$ {product.quantity * product.price}</b></p>
+                    </div>
 
-                  <Quantity>
-                    <p>Quantidade: </p>
-                    <BLess onClick={() => handleDecreaseQuantity(product.id)}>-</BLess>
-                    <b>{product.quantity}</b>
-                    <BMore onClick={() => handleIncreaseQuantity(product.id)}>+</BMore>
-                  </Quantity>
+                    <Quantity>
+                      <p>Quantidade: </p>
+                      <BLess onClick={() => handleDecreaseQuantity(product.id)}>-</BLess>
+                      <b>{product.quantity}</b>
+                      <BMore onClick={() => handleIncreaseQuantity(product.id)}>+</BMore>
+                    </Quantity>
 
-                  <div>
-                    <Remove onClick={() => handleRemoveProduct(product.id)}>X Remover</Remove>
-                  </div>
-                </LiUnit>
-              ))}
-            </DivUl>
-            
-            <SectionDetails>
-              <DivDetails> 
-                <h3>Detalhes do pedido</h3>
+                    <div>
+                      <Remove onClick={() => handleRemoveProduct(product.id)}>X Remover</Remove>
+                    </div>
+                  </LiUnit>
+                ))}
+              </DivUl>
+              
+              <SectionDetails>
+                <DivDetails> 
+                  <h3>Detalhes do pedido</h3>
 
-                <CuponBar onSearch={Header} />
+                  <CuponBar onSearch={Header} />
 
-                <p>Itens no Carrinho: ({totalItems})</p>
+                  <p>Itens no Carrinho: ({totalItems})</p>
 
-                <b>Total: <Space>$ {calculateTotal()}</Space></b>
-              </DivDetails>
-              <Link to="/sucesso">
-                <CheckOut>
-                  {/* <button onClick={authentic}>Finalizar pedido</button> */}
-                  <button>Finalizar pedido</button>
-                </CheckOut>
-              </Link>
-            </SectionDetails>
-          </DivFlex>
-        </Carrinho>
-      )}
+                  <b>Total: <Space>$ {calculateTotal()}</Space></b>
+                </DivDetails>
+                <Link to="/sucesso">
+                  <CheckOut>
+                    {/* <button onClick={authentic}>Finalizar pedido</button> */}
+                    <button>Finalizar pedido</button>
+                  </CheckOut>
+                </Link>
+              </SectionDetails>
+            </DivFlex>
+          </Carrinho>
+        )}
 
       </Main>
       <Footer />
