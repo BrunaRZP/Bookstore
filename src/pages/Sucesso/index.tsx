@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { RootState } from '../../components/store';
 // import { useNavigate } from 'react-router-dom';
 import Product from '../../types/product';
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import { DivSucesso, Back, Ul } from './styles';
 
 const Sucess: React.FC = () => {
@@ -27,7 +25,6 @@ const Sucess: React.FC = () => {
   
   return (
     <div>
-      <Header />
 
       <div>
         <DivSucesso>
@@ -56,7 +53,6 @@ const Sucess: React.FC = () => {
         
       </div>
 
-      <Footer />
     </div>
   );
 };

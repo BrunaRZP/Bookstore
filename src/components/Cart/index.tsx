@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import { RootState } from '../store';
 import { updateProductQuantity, removeProduct } from './slice';
 import Product from '../../types/product';
-import Header from '../Header';
-import Footer from '../Footer';
+import NavbarNavigatio from '../../Navbar/NavbarNavigatio';
 import CuponBar from '../Bars/CuponBar/CuponBar';
 import { 
   Main, EmptyCart, DivEmpty, Shopping, ButtonEmpty, Carrinho, NoReady, 
@@ -88,7 +87,6 @@ const Cart: React.FC = () => {
 
   return (
     <div>
-      <Header />
 
       <Main>
         {productList.length === 0 ? (
@@ -131,7 +129,7 @@ const Cart: React.FC = () => {
                 <DivDetails> 
                   <h3>Detalhes do pedido</h3>
 
-                  <CuponBar onSearch={Header} />
+                  <CuponBar onSearch={NavbarNavigatio} />
 
                   <p>Itens no Carrinho: ({totalItems})</p>
 
@@ -149,7 +147,6 @@ const Cart: React.FC = () => {
         )}
 
       </Main>
-      <Footer />
     </div>
   );
 };

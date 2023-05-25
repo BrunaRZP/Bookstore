@@ -1,12 +1,9 @@
-import Header from "../../components/Header";
 import Box from "../../components/Box";
-import Footer from "../../components/Footer";
 
 function Home() {
 
 return (    
     <div className="App">
-      <Header />
 
       <main>
 
@@ -24,8 +21,6 @@ return (
       </Box>
         
       </main>
-
-      <Footer />
 
     </div>
 );
