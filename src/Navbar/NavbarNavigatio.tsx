@@ -12,6 +12,9 @@ const navigation = [
   { name: 'Sobre', href: '#', current: false },
 ]
 
+// const Header: React.FC = () => {
+
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
@@ -115,3 +118,4 @@ export default function NavbarNavigatio() {
     </Disclosure>
   )
 }
+
