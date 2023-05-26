@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../Cart/slice';
 import Product from '../../types/product';
-import Header from "../Header";
 
 const products: Product[] = [
   {
@@ -21,6 +20,22 @@ const products: Product[] = [
     category: 'Ficção Científica',
     quantity: 0,
   },
+  {
+    id: 3,
+    name: 'Livro C',
+    price: 30,
+    description: 'Descrição do Livro C',
+    category: 'Terror',
+    quantity: 0,
+  },
+  {
+    id: 4,
+    name: 'Livro D',
+    price: 50,
+    description: 'Descrição do Livro D',
+    category: 'Outro',
+    quantity: 0,
+  },
 ];
 
 const ProductList: React.FC = () => {
@@ -33,7 +48,6 @@ const ProductList: React.FC = () => {
 
   return (
     <div>
-      <Header />
       {productList.map((product) => (
         <div key={product.id}>
           <h2>{product.name}</h2>

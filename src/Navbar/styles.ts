@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Link from '../Link';
-import { colors } from "../../styles/themes";
+import Link from '../components/Link';
+// import { colors } from "../../styles/themes";
 
 export const Header1 = styled.header`
   margin: 1% 5%;

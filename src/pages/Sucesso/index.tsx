@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom';
 import { RootState } from '../../components/store';
 // import { useNavigate } from 'react-router-dom';
 import Product from '../../types/product';
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { Back } from './styles';
+import { DivSucesso, Back, Ul, Total } from './styles';
 
 const Sucess: React.FC = () => {
   const products = useSelector((state: RootState) => state.cart.products);
   const productList = Object.values(products);
-
-  // const totalItems = productList.reduce((acc, item) => acc + item.quantity, 0);
 
   const calculateTotal = () => {
     return productList.reduce((acc, item) => acc + Number(item.price) * item.quantity, 0);
@@ -27,20 +23,19 @@ const Sucess: React.FC = () => {
   
   return (
     <div>
-      <Header />
 
       <div>
-        <div>
-          <h1>Compra realizada com sucesso!</h1>
+        <DivSucesso>
+          <h2>Compra realizada com sucesso!</h2>
           <p>Obrigado por fazer sua compra.</p>
           <p>Seu pedido foi processado e em breve será enviado.</p>
+        </DivSucesso>
 
-          <Back as={Link} to="/produtos">Continuar comprando</Back>
-        </div>
+        <Back as={Link} to="/produtos">Continuar comprando</Back>
 
-      <ul>
+        <Ul style={{ display: 'flex', justifyContent: 'wrap', flexWrap: 'wrap', margin: '0 20% 3%' }}>
         {productList.map((product: Product) => (
-          <li key={product.id}>
+          <li key={product.id} style={{ margin: '6%' }}>
             <div>
               <h1>{product.name}</h1>
               <p>Quantidade: <b>({product.quantity})</b></p>
@@ -50,12 +45,11 @@ const Sucess: React.FC = () => {
             </div>
           </li>
         ))}
-      </ul>
+      </Ul>
 
-      <b>Total: $ {calculateTotal()}</b>
+      <Total>Total: $ {calculateTotal()}</Total>
       </div>
 
-      <Footer />
     </div>
   );
 };

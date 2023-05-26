@@ -1,6 +1,10 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon,MagnifyingGlassIcon , XMarkIcon } from '@heroicons/react/24/outline'
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { RootState } from '../components/store';
+import { StyledIconWrapper, CartItemCount } from './styles';
 
 const navigation = [
   { name: 'Comprar', href: '/Produtos1', current: true },
@@ -13,6 +17,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function NavbarNavigatio() {
+  const products = useSelector((state: RootState) => state.cart.products);
+  const itemCount = Object.values(products).reduce((total, product) => total + product.quantity, 0);
   return (
     <Disclosure as="nav" className="bg-[#0D0D0D]">
       {({ open }) => (
@@ -63,7 +69,13 @@ export default function NavbarNavigatio() {
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">Ver notidicação</span>
-                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                  <StyledIconWrapper>
+                    <Link to="/cart">
+                      <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                      {itemCount > 0 && <CartItemCount itemCount={itemCount}>{itemCount}</CartItemCount>}
+                    </Link>
+                  </StyledIconWrapper>
+                  
                 </button>
 
                 {/* Profile dropdown */}
