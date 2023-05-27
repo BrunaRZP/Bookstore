@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { RootState } from '../../components/store';
 // import { useNavigate } from 'react-router-dom';
 import Product from '../../types/product';
-import { DivSucesso, Back, Ul, Total } from './styles';
+import { DivSucesso, Back, Ul, Li, Total } from './styles';
 
 const Sucess: React.FC = () => {
   const products = useSelector((state: RootState) => state.cart.products);
@@ -33,9 +33,9 @@ const Sucess: React.FC = () => {
 
         <Back as={Link} to="/produtos">Continuar comprando</Back>
 
-        <Ul style={{ display: 'flex', justifyContent: 'wrap', flexWrap: 'wrap', margin: '0 20% 3%' }}>
+        <Ul>
         {productList.map((product: Product) => (
-          <li key={product.id} style={{ margin: '6%' }}>
+          <Li key={product.id}>
             <div>
               <h1>{product.name}</h1>
               <p>Quantidade: <b>({product.quantity})</b></p>
@@ -43,7 +43,7 @@ const Sucess: React.FC = () => {
               <p>{product.description}</p>
               <p>{product.category}</p>
             </div>
-          </li>
+          </Li>
         ))}
       </Ul>
 

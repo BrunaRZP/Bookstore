@@ -6,8 +6,8 @@ import { updateProductQuantity, removeProduct } from './slice';
 import Product from '../../types/product';
 import NavbarNavigatio from '../../Navbar/NavbarNavigatio';
 import CuponBar from '../Bars/CuponBar/CuponBar';
-import { Main, EmptyCart, Shopping, ButtonEmpty, Carrinho, NoReady, DivFlex, DivUl, 
-  LiUnit, Quantity, BMore, BLess, Remove, SectionDetails, DivDetails, Space, CheckOut
+import { Main, EmptyCart, Shopping, ButtonEmpty, Carrinho, NoReady, DivFlex, DivUl, LiUnit, 
+  Quantity, BMore, BLess, Remove, SectionDetails, DivDetails, Space, CheckOut
 } from './styles';
 
 const Cart: React.FC = () => {
@@ -124,6 +124,7 @@ const Cart: React.FC = () => {
         )}
 
       </Main>
+
     </div>
   );
 };
