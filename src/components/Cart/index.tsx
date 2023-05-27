@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, NavigateFunction, useNavigate } from 'react-router-dom'; // Para autenticação
+import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from '../store';
 import { updateProductQuantity, removeProduct } from './slice';
-import Product from '../../types/product';
 import NavbarNavigatio from '../../Navbar/NavbarNavigatio';
+import Product from '../../types/product';
 import CuponBar from '../Bars/CuponBar/CuponBar';
-import { Main, EmptyCart, Shopping, ButtonEmpty, Carrinho, NoReady, DivFlex, DivUl, LiUnit, 
+import {
+  Main, EmptyCart, Shopping, ButtonEmpty, Carrinho, NoReady, DivFlex, DivUl, LiUnit,
   Quantity, BMore, BLess, Remove, SectionDetails, DivDetails, Space, CheckOut
 } from './styles';
 
@@ -14,9 +15,7 @@ const Cart: React.FC = () => {
   const products = useSelector((state: RootState) => state.cart.products);
   const productList = Object.values(products);
   const dispatch = useDispatch();
-  
-  const history = useNavigate() as NavigateFunction;
-  // Para autenticação
+  const navigate = useNavigate();
 
   const totalItems = productList.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -50,19 +49,18 @@ const Cart: React.FC = () => {
     localStorage.setItem('cart', JSON.stringify(products));
   }, [productList, products]);
 
-  // Autenticação
-  const authentic = () => {
+  const handleCheckout = () => {
     if (productList.length === 0) {
       alert('Seu carrinho está vazio. Adicione produtos antes de finalizar o pedido.');
       return;
     }
-  
-    const isLoggedIn = true; // Substitua por sua lógica de autenticação
+
+    const isLoggedIn = false; 
 
     if (isLoggedIn) {
-      history('/sucesso');
+      navigate('/sucesso');
     } else {
-      history('/login'); 
+      navigate('/login');
     }
   };
 
@@ -74,12 +72,16 @@ const Cart: React.FC = () => {
             <div>
               <h3>Carrinho Vazio</h3>
             </div>
-            <Shopping as={Link} to="/produtos"><ButtonEmpty>Ir às compras agora</ButtonEmpty></Shopping>
+            <Shopping as={Link} to="/produtos">
+              <ButtonEmpty>Ir às compras agora</ButtonEmpty>
+            </Shopping>
           </EmptyCart>
         ) : (
           <Carrinho>
             <h3>Produtos no Carrinho</h3>
-            <NoReady as={Link} to="/produtos">Não está pronto para finalizar a compra? Continue comprando</NoReady>
+            <NoReady as={Link} to="/produtos">
+              Não está pronto para finalizar a compra? Continue comprando
+            </NoReady>
 
             <DivFlex>
               <DivUl>
@@ -87,8 +89,12 @@ const Cart: React.FC = () => {
                   <LiUnit key={product.id}>
                     <div>
                       <h1>{product.name}</h1>
-                      <p><strong>$ {product.price} </strong> cada</p>
-                      <p>Subtotal: <b>$ {product.quantity * product.price}</b></p>
+                      <p>
+                        <strong>$ {product.price} </strong> cada
+                      </p>
+                      <p>
+                        Subtotal: <b>$ {product.quantity * product.price}</b>
+                      </p>
                     </div>
 
                     <Quantity>
@@ -104,7 +110,7 @@ const Cart: React.FC = () => {
                   </LiUnit>
                 ))}
               </DivUl>
-              
+
               <SectionDetails>
                 <DivDetails> 
                   <h3>Detalhes do pedido</h3>
@@ -113,18 +119,14 @@ const Cart: React.FC = () => {
                   <b>Total: <Space>$ {calculateTotal()}</Space></b>
                 </DivDetails>
 
-                <Link to="/sucesso">
-                  <CheckOut>
-                    <button onClick={authentic}>Finalizar pedido</button>
-                  </CheckOut>
-                </Link>
+                <CheckOut>
+                  <button onClick={handleCheckout}>Finalizar pedido</button>
+                </CheckOut>
               </SectionDetails>
             </DivFlex>
           </Carrinho>
         )}
-
       </Main>
-
     </div>
   );
 };
