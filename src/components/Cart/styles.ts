@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Link from '../Link';
-import { colors } from "../../styles/themes";
 
 export const Main = styled.main`
   margin: 4% 1%;

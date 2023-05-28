@@ -49,6 +49,7 @@ const Cart: React.FC = () => {
     localStorage.setItem('cart', JSON.stringify(products));
   }, [productList, products]);
 
+  // Autenticação
   const handleCheckout = () => {
     if (productList.length === 0) {
       alert('Seu carrinho está vazio. Adicione produtos antes de finalizar o pedido.');

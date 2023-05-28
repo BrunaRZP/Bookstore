@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Link from '../../components/Link';
-import { colors } from "../../styles/themes";
 
 export const DivSucesso = styled.div`
 text-align: center;
