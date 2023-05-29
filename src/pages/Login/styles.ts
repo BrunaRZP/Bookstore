@@ -26,6 +26,10 @@ export const Button = styled.button`
 
 
 
+
+
+
+
 export const Main = styled.main`
    border: 5px solid brown;
    width: 500px;
