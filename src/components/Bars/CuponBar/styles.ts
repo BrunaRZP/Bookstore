@@ -5,7 +5,5 @@ border: none;
 outline: none;
 width: 86%;
 height: 2.375rem;
-::placeholder {
-    padding-left: 5%;
-}
+padding: 4%;
 `;

@@ -1,5 +1,3 @@
-// import "./styles.css";
-
 interface BoxProps {
     section: string;
     children: JSX.Element;

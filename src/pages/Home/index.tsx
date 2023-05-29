@@ -1,21 +1,29 @@
-import BannersHome from "../../components/BannersHome";
-import CarouselHome from "../../components/CarouselHome";
-import CardsRowHome from "../../components/CardsRowHome";
-import Authors from "../../components/Authors";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
+import Box from "../../components/Box";
 
 function Home() {
-  return (
-    <div>
-      <Header />
-      <CarouselHome />
-      <BannersHome />
-      <CardsRowHome />
-      <Authors />
-      <Footer />
+
+return (    
+    <div className="App">
+
+      <main>
+
+      <Box section="banner">
+
+        <div>
+        
+        <h1>Conteúdo da página</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quam veniam facere corporis delectus 
+            eaque suscipit possimus dolore? Consequuntur reiciendis odio nam est cumque sunt, dignissimos animi corrupti 
+            reprehenderit, ad repellendus, quae vitae dicta necessitatibus non! Enim eveniet ipsa fugiat.
+        </p>
+        </div>
+
+      </Box>
+        
+      </main>
+
     </div>
-  );
+);
 }
 
-export default Home
+export default Home;

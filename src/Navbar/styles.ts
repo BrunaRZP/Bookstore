@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Link from '../Link';
-import { colors } from "../../styles/themes";
+import Link from '../components/Link';
+// import { colors } from "../../styles/themes";
 
 export const Header1 = styled.header`
   margin: 1% 5%;
@@ -27,8 +27,6 @@ export const SearchBarDiv = styled.div`
 `;
 
 export const StyledIconWrapper = styled.div`
-  /* display: flex; */
-  /* align-items: center; */
   margin-left: auto;
   margin-top: 5px; 
   margin-right: 40px;
@@ -46,7 +44,6 @@ export const Img = styled.img`
 `;
 
 export const CartItemCount = styled.span<{ itemCount: number }>`
-  /* text-decoration: none; */
   background-color: orange;
   color: #fff;
   border-radius: 50%;
