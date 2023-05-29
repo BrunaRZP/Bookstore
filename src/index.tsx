@@ -1,33 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { Provider } from 'react-redux';
 import store from "../src/components/store";
+import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
 import './index.css';
 import App from './App';
-import NavbarNavigatio from './Navbar/NavbarNavigatio';
+import NavbarNavigation from './Navbar/NavbarNavigatio';
 import Footer from './Footer/Footer';
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
 
 const queryClient = new QueryClient();
 
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <NavbarNavigatio />
-          <App />
+    <BrowserRouter>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <NavbarNavigation />
           <Routes />
           <Footer />
-        </BrowserRouter>
-      </QueryClientProvider>
-    </Provider>
-  </React.StrictMode>
+        </QueryClientProvider>
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
