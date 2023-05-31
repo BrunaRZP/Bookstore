@@ -6,9 +6,8 @@ import store from "../src/components/store";
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
 import './index.css';
-import App from './App';
-import NavbarNavigation from './Navbar/NavbarNavigatio';
-import Footer from './Footer/Footer';
+import NavbarNavigation from './components/Navbar/NavbarNavigatio';
+import Footer from '../src/components/Footer/Footer';
 
 const queryClient = new QueryClient();
 

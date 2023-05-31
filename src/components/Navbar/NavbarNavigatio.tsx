@@ -1,19 +1,15 @@
-import { Fragment } from 'react'
 import { Disclosure, Menu } from '@headlessui/react'
-import { Bars3Icon, ShoppingCartIcon,MagnifyingGlassIcon , XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, ShoppingCartIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RootState } from '../components/store';
-import { StyledIconWrapper, CartItemCount } from './styles';
+import { RootState } from '../store';
+import { StyledIconWrapper, CartItemCount, Login } from './styles';
 
 const navigation = [
   { name: 'Comprar', href: '/Produtos1', current: true },
-  { name: 'Stories', href: '#', current: false },
+  { name: 'Stories', href: '/produtos', current: false },
   { name: 'Sobre', href: '#', current: false },
 ]
-
-// const Header: React.FC = () => {
-
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -41,7 +37,7 @@ export default function NavbarNavigatio() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <span className='text-white font-bold'>Bookstore</span>
+                  <a href="/" className='text-white font-bold'>Bookstore</a>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -71,14 +67,13 @@ export default function NavbarNavigatio() {
                   type="button"
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
-                  <span className="sr-only">Ver notidicação</span>
-                  <StyledIconWrapper>
-                    <Link to="/cart">
+                  <span className="sr-only">Ver notificação</span>
+                  <StyledIconWrapper className="relative">
+                    <Link to="/carrinho">
                       <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                       {itemCount > 0 && <CartItemCount itemCount={itemCount}>{itemCount}</CartItemCount>}
                     </Link>
                   </StyledIconWrapper>
-                  
                 </button>
 
                 {/* Profile dropdown */}
@@ -86,10 +81,11 @@ export default function NavbarNavigatio() {
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                          <span className='text-white'>Login</span>
+                      <div>
+                        <Login as={Link} to="/Login">Login</Login>
+                      </div>
                     </Menu.Button>
                   </div>
-
                 </Menu>
               </div>
             </div>
@@ -118,4 +114,3 @@ export default function NavbarNavigatio() {
     </Disclosure>
   )
 }
-

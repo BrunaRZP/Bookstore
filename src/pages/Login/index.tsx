@@ -1,8 +1,6 @@
 import { FormEvent, useState } from "react";
 import { login } from "./mainApi/login";
 import { Button, H1, Main, Form} from "./styles";
-import Header from "../../components/Header";
-
 
 
 export default function Login(): JSX.Element{

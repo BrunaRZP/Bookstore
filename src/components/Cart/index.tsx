@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from '../store';
 import { updateProductQuantity, removeProduct } from './slice';
-import NavbarNavigatio from '../../Navbar/NavbarNavigatio';
+import NavbarNavigatio from '../Navbar/NavbarNavigatio';
 import Product from '../../types/product';
 import CuponBar from '../Bars/CuponBar/CuponBar';
 import {

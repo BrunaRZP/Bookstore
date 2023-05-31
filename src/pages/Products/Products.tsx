@@ -1,7 +1,6 @@
 import { useState, Fragment } from "react";
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
-import axios from "axios";
 
 const products = [
 
