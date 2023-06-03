@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../Cart/slice';
-import Product from '../../types/product';
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  category: string;
+  quantity: number;
+}
 
 const products: Product[] = [
   {

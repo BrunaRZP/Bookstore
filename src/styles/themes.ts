@@ -1,9 +1,11 @@
 // Cores
 export const colors = {
-  TopDown: "#f5f5f5",
-  header: "#000",
-  another: "#B4E7CE",
-  bgButton: "#4d5d6b"
+  primaria: "#8B4513", /* Marrom escuro */
+  secundaria: "#D2B48C", /* Marrom claro */
+  fundo: "#F5F5F5", /* Branco suave */
+  // texto: "#333333", /* Cinza escuro */
+  // destaque: "#006400", /* Verde escuro */
+  bgButton: "#4d5d6b", /* outro cinza */
 };
 
 // Fontes

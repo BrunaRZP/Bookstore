@@ -73,14 +73,14 @@ const Cart: React.FC = () => {
             <div>
               <h3>Carrinho Vazio</h3>
             </div>
-            <Shopping as={Link} to="/produtos">
+            <Shopping as={Link} to="/">
               <ButtonEmpty>Ir às compras agora</ButtonEmpty>
             </Shopping>
           </EmptyCart>
         ) : (
           <Carrinho>
             <h3>Produtos no Carrinho</h3>
-            <NoReady as={Link} to="/produtos">
+            <NoReady as={Link} to="/">
               Não está pronto para finalizar a compra? Continue comprando
             </NoReady>
 

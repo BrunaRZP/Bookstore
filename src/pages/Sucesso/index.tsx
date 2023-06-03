@@ -14,14 +14,12 @@ const Success: React.FC = () => {
     return productList.reduce((acc, item) => acc + Number(item.price) * item.quantity, 0);
   };
 
-  // Aba
   useEffect(() => {
     const total = calculateTotal();
     document.title = `Carrinho (${productList.length}) - Total: ${total}$`;
 
     localStorage.setItem('cart', JSON.stringify(products));
 
-    // Verifica se há produtos no carrinho. Se não houver, redireciona para a página inicial.
     if (productList.length === 0) {
       navigate('/');
     }

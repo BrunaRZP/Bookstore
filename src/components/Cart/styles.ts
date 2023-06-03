@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { lighten } from 'polished';
 import Link from '../Link';
+import { colors } from '../../styles/themes'
 
 export const Main = styled.main`
   margin: 4% 1%;
@@ -41,12 +43,12 @@ export const ButtonEmpty = styled.button`
   padding: 10px 60px;
   margin-bottom: 10%;
   border: none;
-  background-color: orange;
+  background-color: ${colors.bgButton};
   color: #fff;
   font-size: 1.6rem;
   &:hover {
     transition: 0.5s;
-    background-color: rgba(255, 165, 0, 0.7);
+    background-color: ${props => lighten(0.07, colors.bgButton)};
     cursor: pointer;
   }
 `;
@@ -147,7 +149,7 @@ export const Remove = styled.button`
   margin-left: 90%;
   padding: 7px;
   background-color: #fff;
-  color: #FF8C00;
+  color: ${colors.bgButton};
   border: none;
   &:hover {
     cursor: pointer;
@@ -162,7 +164,6 @@ export const Remove = styled.button`
 
 export const SectionDetails = styled.section`
   height: 25rem;
-  width: 20%;
   flex-direction: column;
   background-color: #d3d3d3;
   margin-left: 25%;
@@ -191,14 +192,14 @@ export const DivDetails = styled.div`
     font-size: 1.563rem;
     padding-bottom: 9%;
     margin-bottom: 9%;
-    width: 87%;
+    width: 91%;
     border-block-end: 1px solid #f1f1f1;
   }
   p {
-    width: 86%;
+    width: 91%;
     margin-top: 10%;
-    margin-bottom: 12%;
-    padding: 10% 0;
+    margin-bottom: 8.5%;
+    padding: 8% 0;
     border-block-end: 1px solid #f1f1f1;
     border-top: 1px solid #f1f1f1;
   }
@@ -244,13 +245,13 @@ export const CheckOut = styled.div`
   button {
     font-size: 1rem;
     font-weight: 900;
-    padding: 0.813rem 8.75rem;
+    padding: 1.5rem 8.75rem;
     border: none;
-    background-color: orange;
+    background-color: ${colors.bgButton};
     color: #000;
     &:hover {
       transition: 0.5s;
-      background-color: rgba(255, 165, 0, 0.7);
+      background-color: ${props => lighten(0.07, colors.bgButton)};
       cursor: pointer;
     }
   }

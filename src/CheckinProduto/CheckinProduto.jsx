@@ -3,8 +3,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useDispatch } from 'react-redux';
+import { addProductToCart } from '../components/Cart/slice';
+import Product from '../types/product'; 
+// import Cart from '../components/Cart/slice';
 
-const CheckinProduto = () => {
+const CheckinProduto = ({ product }) => {
     const [quantidade, setQuantidade] = useState(1);
 
     const incrementarQuantidade = () => {
@@ -43,9 +47,14 @@ const CheckinProduto = () => {
         });
     };
 
+    const dispatch = useDispatch();
 
+    const handleAddToCart = () => {
+        dispatch(addProductToCart(product));
+    };
+      
     return (
-        <div className="mx-auto w-full">
+        <div className="mx-auto w-full">          
             <section className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
                 <div className="container px-4 mx-auto">
                     <div className="flex flex-wrap -mx-4">
@@ -112,11 +121,15 @@ const CheckinProduto = () => {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="flex flex-col md:flex-row -mx-2 mb-12">
                                 <div className="w-full md:w-3/4 px-2 mb-2 md:mb-0">
-                                    <button className="block w-full py-4 px-2 leading-8 font-heading font-medium tracking-tighter text-xl text-white text-center bg-black focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover:bg-blue-600 rounded-xl" onClick={adicionarNoCarrinho}>
-                                        Adicionar no carrinho
+                                    <button className="block w-full py-4 px-2 leading-8 font-heading font-medium tracking-tighter text-xl text-white text-center bg-black focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover:bg-blue-600 rounded-xl"
+                                        onClick={() => {
+                                            adicionarNoCarrinho();
+                                            dispatch(addProductToCart(product));
+                                        }}
+                                    >
+                                        Adicionar ao Carrinho
                                     </button>
                                 </div>
                                 <div className="w-full md:w-1/4 px-2 mb-2 md:mb-0">
@@ -131,7 +144,7 @@ const CheckinProduto = () => {
             </section>
             <ToastContainer />
         </div>
-    )
-}
+    );
+};
 
-export default CheckinProduto
+export default CheckinProduto;

@@ -8,7 +8,7 @@ const products = [
         id: 1,
         name: 'livro 1',
         href: '#',
-        price: 'R$ 00,00',
+        price: 'R$ 00,00', //trocar para o tipo "number"
         category: 'Ficção',
         imageSrc: 'https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740',
         imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
