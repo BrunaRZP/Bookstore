@@ -5,12 +5,12 @@ import { Button, H1, Main, Form} from "./styles";
 
 export default function Login(): JSX.Element{
 const [email, setEmail] = useState<string>("");
-const [senha, setSenha] = useState<string>("");
+const [password, setPassword] = useState<string>("");
 
 const submit = async (event: FormEvent) =>{
     event.preventDefault();
     try {
-       const response= await login({email, senha});
+       const response= await login({email, password});
        console.log(response.data);
        alert("logado com sucesso")
     } catch (error) {
@@ -37,8 +37,8 @@ return (
                 <input
                     type="text"
                     className="form-control"
-                    value={senha}
-                    onChange={(event) => setSenha(event.target.value)}
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
                 />
             </div>
             <div className="mb-3">
