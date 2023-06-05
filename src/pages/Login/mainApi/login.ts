@@ -3,7 +3,7 @@ import baseApi from "./config";
 
 interface LoginProps{
     email : string;
-    senha : string;
+    password : string;
 }
 
 export function login(props: LoginProps){
