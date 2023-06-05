@@ -11,22 +11,22 @@ function CardsRowHome() {
       <p className="text-h1 font-semibold text-center text-[#656A70]">Produtos em destaque</p>
       <div className="text-center w-10/12 m-auto gap-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-row">
         <div className="flex flex-col m-auto">
-          <Link to={"/catalogo"}>
+          <Link to={"/Produtos2"}>
             <img className="m-auto relative top-[55px] hover:scale-105 transition-transform" src={Book1} alt="book" />
           </Link>
         </div>
         <div className="flex flex-col m-auto">
-          <Link to={"/catalogo"}>
+          <Link to={"/"}>
             <img className="m-auto relative top-[55px] hover:scale-110 transition-transform" src={Book2} alt="book" />
           </Link>
         </div>
         <div className="flex flex-col m-auto">
-          <Link to={"/catalogo"}>
+          <Link to={"/"}>
             <img className="m-auto relative top-[55px] hover:scale-110 transition-transform" src={Book3} alt="book" />
           </Link>
         </div>
         <div className="flex flex-col m-auto">
-          <Link to={"/catalogo"}>
+          <Link to={"/"}>
             <img className="m-auto relative top-[55px] hover:scale-110 transition-transform" src={Book4} alt="book" />
           </Link>
         </div>

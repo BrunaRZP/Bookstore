@@ -1,16 +1,25 @@
 import { useState, Fragment } from "react";
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import '../../styles/produtos.css';
+import Book1 from '../../assets/book1.png';
+
 
 const products = [
 
     {
         id: 1,
+<<<<<<< Updated upstream
         name: 'livro 1',
         href: '#',
         price: 'R$ 00,00', //trocar para o tipo "number"
+=======
+        name: 'The Dragons Quest',
+        href: '../Produtos2',
+        price: '$ 19,90',
+>>>>>>> Stashed changes
         category: 'Ficção',
-        imageSrc: 'https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740',
+        Src: {Book1},
         imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
@@ -30,15 +39,6 @@ const products = [
         category: 'Category 3',
         imageSrc: 'https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740',
         imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-    },
-    {
-        id: 4,
-        name: 'livro 4',
-        href: '#',
-        price: 'R$ 00,00',
-        category: 'Category 3',
-        imageSrc: 'https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740',
-        imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
 ]
 
@@ -130,15 +130,6 @@ export default function Products() {
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {sortedProducts.slice(0, productCount).map((product) => (
                         <a key={product.id} href={product.href} className="group">
-                            <div className="w-full h-64 overflow-hidden rounded-lg bg-gray-200">
-                                <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-
-
                             <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
                             <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
                         </a>
@@ -156,3 +147,4 @@ export default function Products() {
         </div>
     )
 }
+

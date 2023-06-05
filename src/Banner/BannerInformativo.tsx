@@ -8,7 +8,7 @@ export default function BannerInformativo() {
           <div className="max-w-xl lg:max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Bookstore</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            Bem-vindo à nossa livraria! Aqui você encontrará uma seleção incrível de livros para todos os gostos e idades. Explore nosso site e descubra os melhores títulos do momento. Nossa equipe está pronta para ajudá-lo a encontrar o que procura. Aproveite sua jornada literária conosco! Equipe BookStore.
             </p>
           </div>
         </div>
