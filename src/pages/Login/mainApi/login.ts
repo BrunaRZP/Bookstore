@@ -7,5 +7,5 @@ interface LoginProps{
 }
 
 export function login(props: LoginProps){
-    return baseApi.post("/login", props);
+    return baseApi.post("https://api-ecommerce-livraria.onrender.com/user/login", props);
 }
