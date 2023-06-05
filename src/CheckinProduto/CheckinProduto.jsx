@@ -6,7 +6,12 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../components/Cart/slice';
 import Product from '../types/product'; 
+
 import Cart from '../components/Cart/slice';
+import Book1 from "../../src/assets/book1.png";
+
+=======
+// import Cart from '../components/Cart/slice';
 import Book1 from "../../src/assets/book1.png";
 
 
