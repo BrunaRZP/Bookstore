@@ -9,15 +9,9 @@ const products = [
 
     {
         id: 1,
-<<<<<<< Updated upstream
-        name: 'livro 1',
-        href: '#',
-        price: 'R$ 00,00', //trocar para o tipo "number"
-=======
         name: 'The Dragons Quest',
         href: '../Produtos2',
         price: '$ 19,90',
->>>>>>> Stashed changes
         category: 'Ficção',
         Src: {Book1},
         imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
