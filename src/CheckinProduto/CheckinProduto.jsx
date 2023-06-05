@@ -3,14 +3,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-<<<<<<< Updated upstream
 import { useDispatch } from 'react-redux';
 import { addProductToCart } from '../components/Cart/slice';
 import Product from '../types/product'; 
-// import Cart from '../components/Cart/slice';
-=======
+import Cart from '../components/Cart/slice';
 import Book1 from "../../src/assets/book1.png";
->>>>>>> Stashed changes
+
 
 const CheckinProduto = ({ product }) => {
     const [quantidade, setQuantidade] = useState(1);
@@ -73,7 +71,6 @@ const CheckinProduto = ({ product }) => {
                                                 alt=""
                                             />
                                         </div>
-                                        {/* Adicione mais divs com imagens adicionais, se necessário */}
                                     </Carousel>
                                 </div>
                             </div>

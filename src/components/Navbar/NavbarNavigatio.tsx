@@ -7,10 +7,6 @@ import { StyledIconWrapper, CartItemCount, Login } from './styles';
 
 const navigation = [
   { name: 'Comprar', href: '/Produtos1', current: true },
-<<<<<<< Updated upstream
-  { name: 'Stories', href: '#', current: false },
-=======
->>>>>>> Stashed changes
   { name: 'Sobre', href: '#', current: false },
 ]
 
