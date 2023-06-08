@@ -2,7 +2,6 @@ import { FormEvent, useState } from "react";
 import { login } from "./mainApi/login";
 import { Button, H1, Main, Form} from "./styles";
 
-
 export default function Login(): JSX.Element{
 const [email, setEmail] = useState<string>("");
 const [password, setPassword] = useState<string>("");
@@ -44,6 +43,11 @@ return (
             <div className="mb-3">
                 <Button type="submit">
                     Logar
+                </Button>
+            </div>
+            <div className="mb-3">
+                <Button type="submit">
+                    Cadastrar
                 </Button>
             </div>
         </Form>
