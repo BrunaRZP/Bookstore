@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Produtos1 from "../src/components/Produtos1/Produtos1";
 import Produtos2 from "../src/components/Produtos2/produtos2";
 import Produtos3 from "./components/Produtos3/Produtos3";
+import CadastroCliente from "./pages/Cadastro/cliente";
 
 export default function Routes() {
     return (
@@ -18,6 +19,7 @@ export default function Routes() {
             <Route path="/carrinho" element={<Cart />} /> 
             <Route path="/sucesso" element={<Sucesso />} />
             <Route path="/Login" element={<Login/>}/>
+            <Route path="/cadastro" element={<CadastroCliente/>} />
             <Route path="/Produtos1" element={<Produtos1 />} />
             <Route path="/Produtos2" element={<Produtos2 />} />
             <Route path="/Produtos3" element={<Produtos3 />} />
