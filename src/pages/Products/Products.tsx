@@ -2,8 +2,8 @@ import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import "../../styles/produtos.css";
-import axios from "axios";
-const baseApiUrl = "https://api-ecommerce-livraria.onrender.com";
+import { mainApiJson } from "../../mainApi/config";
+const baseApiUrl = process.env.REACT_APP_BASE_API_URL;
 
 const sortOptions = [
   "Preço: Maior - Menor",
@@ -40,14 +40,14 @@ export default function Products() {
   const [categories, setCategories] = useState<Icategory[]>();
 
   useEffect(() => {
-    axios.get(`${baseApiUrl}/product`).then((res) => setProducts(res.data))
+    mainApiJson.get(`/product`).then((res) => setProducts(res.data))
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
   useEffect(() => {
-    axios.get(`${baseApiUrl}/category`).then((res) => setCategories(res.data))
+    mainApiJson.get(`/category`).then((res) => setCategories(res.data))
       .catch((error) => console.error(error));
   }, []);
 

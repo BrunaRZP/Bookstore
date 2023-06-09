@@ -1,5 +1,6 @@
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { FormEvent, useState } from "react";
+import { mainApiJson } from "../../../mainApi/config";
 
 export default function CadastroCliente() {
   const [name, setName] = useState<string>("");
@@ -10,7 +11,7 @@ export default function CadastroCliente() {
   async function criarCadastro(e: FormEvent) {
     try {
       e.preventDefault();
-      const res = await axios.post("https://api-ecommerce-livraria.onrender.com/user", {
+      const res = await mainApiJson.post("/user", {
         name,
         email,
         password,
