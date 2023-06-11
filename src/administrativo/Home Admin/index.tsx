@@ -48,17 +48,15 @@ const App: React.FC = () => {
         <Ul>
           {filteredProducts.map((product: ProductAPI) => (
             <li key={product.id}>
+              {/* <img src={`https://api-ecommerce-livraria.onrender.com/images/${product.image}`} /> */}
               <h1>{product.name}</h1> 
               <p>Valor: R$ {product.price}</p>
               <p>Descrição: {product.description}</p>
-              {/* <p>Categoria: {product.categories.join(', ')}</p> */}
-              {/* comentado pq  retorna "object" */}
               <p>Quantidade no estoque: {product.inventory}</p>
               <Link to={`/edit-product/${product.id}`}>
                 <button>Editar</button>
               </Link>
               <Excluir className="btn-excluir" onClick={() => handleDeleteProduct(product.id)}>Excluir</Excluir>
-              {/* comentado para ter risco de excluir produtos */}
             </li>
           ))}
         </Ul>

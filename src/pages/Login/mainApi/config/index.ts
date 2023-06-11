@@ -1,11 +1,15 @@
 import axios from "axios";
 
-
-const baseApi = axios.create({
-    baseURL : "https://api-ecommerce-livraria.onrender.com/user/login",
-    headers : {
-        "Content-Type" : "application/json",
-    }
+const mainApiJson = axios.create({
+  baseURL: process.env.REACT_APP_BASE_API_URL,
+  withCredentials: true,
+  headers: { "Content-Type": "application/json" },
 });
 
-export default baseApi;
+const mainApiMultipart = axios.create({
+  baseURL: process.env.REACT_APP_BASE_API_URL,
+  withCredentials: true,
+  headers: { "Content-Type": "multipart/form-data" },
+});
+
+export { mainApiJson, mainApiMultipart };

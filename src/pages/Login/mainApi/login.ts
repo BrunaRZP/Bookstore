@@ -1,11 +1,10 @@
-import baseApi from "./config";
+import axios, { AxiosResponse } from 'axios';
 
-
-interface LoginProps{
-    email : string;
-    senha : string;
+interface LoginProps {
+  email: string;
+  password: string;
 }
 
-export function login(props: LoginProps){
-    return baseApi.post("/login", props);
+export function login(props: LoginProps): Promise<AxiosResponse<any>> {
+  return axios.post('https://api-ecommerce-livraria.onrender.com/user/login', props);
 }

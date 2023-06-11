@@ -3,7 +3,7 @@ import { colors } from '../../styles/themes'
 
 export const Div = styled.div`
 margin: 2%;
-border: 1px solid #000;
+border: 1px solid ${colors.bgButton};
 border-radius: 35px;
 `;
 
@@ -22,6 +22,10 @@ div {
 
 input {
     margin-left: 0.5%;
+}
+
+input, label {
+    font-weight: 600;
 }
 
 button {

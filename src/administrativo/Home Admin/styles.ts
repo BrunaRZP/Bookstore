@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../styles/themes";
 
 export const List = styled.div`
 display: flex;
@@ -24,12 +25,15 @@ h1 {
 }
 
 li {
+    width: 45%;
     margin-left: 4%;
     margin-bottom: 5%;
+    padding: 2% 3%;
+    border: 1px solid ${colors.bgButton};
+    border-radius: 35px;
 }
 
 p {
-    width: 35%;
     font-size: 1.1rem;
     margin: 1% 0;
 }
