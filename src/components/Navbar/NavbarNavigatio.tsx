@@ -1,22 +1,40 @@
-import { Disclosure, Menu } from '@headlessui/react'
-import { Bars3Icon, ShoppingCartIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { RootState } from '../store';
+import { Disclosure, Menu } from '@headlessui/react';
+import { Bars3Icon, ShoppingCartIcon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { StyledIconWrapper, CartItemCount, Login } from './styles';
+import axios from 'axios';
 
 const navigation = [
   { name: 'Comprar', href: '/Produtos1', current: true },
   { name: 'Sobre', href: '#', current: false },
-]
+];
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
-export default function NavbarNavigatio() {
-  const products = useSelector((state: RootState) => state.cart.products);
-  const itemCount = Object.values(products).reduce((total, product) => total + product.quantity, 0);
+const NavbarNavigation = () => {
+  const isLoggedIn = localStorage.getItem('token');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isAdmin = location.pathname === '/homeadm' && isLoggedIn && localStorage.getItem('role') === 'admin';
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('https://api-ecommerce-livraria.onrender.com/user/logout', null, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      localStorage.removeItem('token');
+
+      console.log('Logout successful');
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
+  };
+
   return (
     <Disclosure as="nav" className="bg-[#0D0D0D]">
       {({ open }) => (
@@ -36,7 +54,9 @@ export default function NavbarNavigatio() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="/" className='text-white font-bold'>Bookstore</a>
+                  <a href="/" className="text-white font-bold">
+                    Bookstore
+                  </a>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -55,7 +75,11 @@ export default function NavbarNavigatio() {
                     ))}
                     <div className="relative">
                       <MagnifyingGlassIcon className="absolute top-2 left-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                      <input className="pl-8 pr-2 py-2 rounded-md text-sm bg-[#0D0D0D] text-white placeholder-gray-400" type="text" placeholder="Procurar produtos" />
+                      <input
+                        className="pl-8 pr-2 py-2 rounded-md text-sm bg-[#0D0D0D] text-white placeholder-gray-400"
+                        type="text"
+                        placeholder="Procurar produtos"
+                      />
                     </div>
                   </div>
                 </div>
@@ -70,7 +94,7 @@ export default function NavbarNavigatio() {
                   <StyledIconWrapper className="relative">
                     <Link to="/carrinho">
                       <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-                      {itemCount > 0 && <CartItemCount itemCount={itemCount}>{itemCount}</CartItemCount>}
+                      {/* {itemCount > 0 && <CartItemCount itemCount={itemCount}>{itemCount}</CartItemCount>} */}
                     </Link>
                   </StyledIconWrapper>
                 </button>
@@ -80,13 +104,30 @@ export default function NavbarNavigatio() {
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                      <div>
-                        <Login as={Link} to="/Login">Login</Login>
-                      </div>
+                      {isLoggedIn ? (
+                        <>
+                          <button type="button" onClick={handleLogout}>
+                            Logout
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <Link to="/login">Login</Link>
+                        </>
+                      )}
                     </Menu.Button>
                   </div>
                 </Menu>
               </div>
+              {isAdmin && (
+                <button
+                  type="button"
+                  className="rounded-md bg-white text-black px-4 py-2 ml-4"
+                  onClick={() => navigate('/homeadm')}
+                >
+                  Admin Home
+                </button>
+              )}
             </div>
           </div>
 
@@ -111,5 +152,7 @@ export default function NavbarNavigatio() {
         </>
       )}
     </Disclosure>
-  )
-}
+  );
+};
+
+export default NavbarNavigation;

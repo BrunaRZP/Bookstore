@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { Provider } from 'react-redux';
 import store from "../src/components/store";
@@ -11,17 +11,18 @@ import Footer from '../src/components/Footer/Footer';
 
 const queryClient = new QueryClient();
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+  );
+  root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <NavbarNavigation />
           <Routes />
           <Footer />
         </QueryClientProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
 );
