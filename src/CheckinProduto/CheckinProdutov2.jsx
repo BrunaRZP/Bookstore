@@ -3,6 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Book1 from "../assets/book1.png";
+import Book2 from "../assets/book2.png";
+import Book3 from "../assets/book3.png";
 
 const CheckinProdutov2 = () => {
     const [quantidade, setQuantidade] = useState(1);
@@ -55,14 +58,14 @@ const CheckinProdutov2 = () => {
                                         <div className="w-full sm:w-1/2 px-4 mb-4 flex justify-center sm:justify-start">
                                             <img
                                                 className="w-5/6 sm:w-full object-cover"
-                                                src="https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740"
+                                                src={Book1}
                                                 alt=""
                                             />
                                         </div>
                                         <div className="w-full sm:w-1/2 px-4 mb-4 flex justify-center sm:justify-start">
                                             <img
                                                 className="w-5/6 sm:w-full object-cover"
-                                                src="https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740"
+                                                src={Book2}
                                                 alt=""
                                             />
                                         </div>
@@ -71,14 +74,7 @@ const CheckinProdutov2 = () => {
                                         <div className="w-full sm:w-1/2 px-4 mb-4 flex justify-center sm:justify-start">
                                             <img
                                                 className="w-5/6 sm:w-full object-cover"
-                                                src="https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div className="w-full sm:w-1/2 px-4 mb-4 flex justify-center sm:justify-start">
-                                            <img
-                                                className="w-5/6 sm:w-full object-cover"
-                                                src="https://img.freepik.com/fotos-premium/ilustracao-de-fundo-de-papel-quadrado-cinza_6344-55.jpg?w=740"
+                                                src={Book3}
                                                 alt=""
                                             />
                                         </div>
@@ -89,52 +85,13 @@ const CheckinProdutov2 = () => {
 
                         <div className="w-full lg:w-1/2 px-4">
                             <div className="max-w-md mb-6">
-                                <h2 className="mt-6 mb-4 text-5xl md:text-7xl lg:text-4xl font-heading font-medium">As aventuras de...</h2>
+                                <h2 className="mt-6 mb-4 text-5xl md:text-7xl lg:text-4xl font-heading font-medium">3 pelo preço de 2</h2>
                                 <p className="flex items-center mb-6">
-                                    <span className="mr-2 text-sm text-black font-medium">R$</span>
-                                    <span className="text-3xl text-black font-medium">44,90</span>
+                                    <span className="mr-2 text-sm text-black font-medium">$</span>
+                                    <span className="text-3xl text-black font-medium">49.99</span>
                                 </p>
-                                <p className="text-lg text-gray-400">As aventuras de................</p>
+                                <p className="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             </div>
-                            <div>
-
-                                <div>
-                                    <h4 className="font-heading font-medium">Cor:</h4>
-                                    <div className="flex items-center mt-2 justify-center lg:justify-start">
-                                        {cores.map((cor, index) => (
-                                            <button
-                                                key={index}
-                                                className={`w-10 h-10 rounded-full border-2 border-black mx-1 ${corSelecionada === cor ? 'bg-gray-500' : 'bg-gray-200'
-                                                    }`}
-                                                style={{ backgroundColor: cor }}
-                                                onClick={() => handleCorSelecionada(cor)}
-                                            ></button>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <h4 className="font-heading font-medium mt-6">Tamanho:</h4>
-                                <div className="flex items-center mt-2 justify-center lg:justify-start">
-                                    {tamanhos.map((tamanho, index) => (
-                                        <button
-                                            key={index}
-                                            className={`w-10 h-10 border-2 border-black mx-1 text-lg font-medium ${tamanhoSelecionado === tamanho ? 'bg-gray-500 text-white' : 'bg-gray-200'
-                                                }`}
-                                            onClick={() => handleTamanhoSelecionado(tamanho)}
-                                        >
-                                            {tamanho}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="m-6 ml-0 items-center">
-                                <a href="#">Size & Fit Guide</a>
-                            </div>
-
-                            <div className="mb-6 items-center">
-                                <span className='mx-auto'>Height of model: 189 cm. / 6′ 2″ Size 41</span>
-                            </div>
-
                             <div className="flex flex-wrap -mx-2 mb-12">
                                 <div className="w-full md:w-1/2 px-2 mb-2 md:mb-0">
                                     <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
@@ -146,16 +103,6 @@ const CheckinProdutov2 = () => {
                                             Adicionar no carrinho
                                         </button>
                                         <div className="ml-4">
-                                            <span className="text-black font-medium inline-block">Quantidade:</span>
-                                            <div className="flex items-center border border-black rounded-lg">
-                                                <button className="px-4 py-2 border-r border-black focus:outline-none text-center" onClick={decrementarQuantidade}>
-                                                    -
-                                                </button>
-                                                <span className="px-4 py-2 text-center">{quantidade}</span>
-                                                <button className="px-4 py-2 border-l border-black focus:outline-none text-center" onClick={incrementarQuantidade}>
-                                                    +
-                                                </button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

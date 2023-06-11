@@ -13,3 +13,11 @@ const mainApiMultipart = axios.create({
 });
 
 export { mainApiJson, mainApiMultipart };
+const baseApi = axios.create({
+  
+    headers : {
+        "Content-Type" : "application/json",
+    }
+});
+
+export default baseApi;

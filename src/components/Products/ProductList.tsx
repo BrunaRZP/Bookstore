@@ -35,15 +35,7 @@ const products: Product[] = [
     description: 'Descrição do Livro C',
     category: 'Terror',
     quantity: 0,
-  },
-  {
-    id: 4,
-    name: 'Livro D',
-    price: 50,
-    description: 'Descrição do Livro D',
-    category: 'Outro',
-    quantity: 0,
-  },
+  }
 ];
 
 const ProductList: React.FC = () => {

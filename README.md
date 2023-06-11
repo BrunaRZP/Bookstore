@@ -30,4 +30,4 @@ a ser realizada pela equipe.
 
 ## Link para acesso
 
-https://bookstore-gules-xi.vercel.app/
+https://bookstore-omega-snowy.vercel.app/
